@@ -1,0 +1,33 @@
+---
+import constants from '../constants.json';
+---
+
+<a class="amurit" href={constants.amurit.href} target="_blank" rel="noreferrer">
+	{constants.amurit.label}
+</a>
+
+<style>
+	.amurit {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: calc(100% - (var(--page-pad) * 2));
+		max-width: var(--page-max);
+		margin: 0.7rem auto 0.65rem;
+		padding: 0.42rem 1rem;
+		border-radius: 0.55rem;
+		background: #059669;
+		color: #ecfdf5;
+		text-decoration: none;
+		font-size: 0.82rem;
+		font-weight: 600;
+		letter-spacing: 0.04em;
+		box-shadow: 0 6px 18px rgba(5, 150, 105, 0.22);
+		transition: background 0.18s ease, transform 0.18s ease;
+	}
+
+	.amurit:hover {
+		background: #047857;
+		transform: translateY(-1px);
+	}
+</style>

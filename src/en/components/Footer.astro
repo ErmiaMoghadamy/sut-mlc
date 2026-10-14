@@ -1,0 +1,63 @@
+---
+import constants from '../constants.json';
+
+const year = new Date().getFullYear();
+---
+
+<footer>
+	<div class="inner">
+		<div>
+			<p>{constants.footer.text}</p>
+			<p class="copy">© {year} {constants.siteName}. {constants.footer.copyright}</p>
+		</div>
+		<nav>
+			{constants.nav.links.map((link) => (
+				<a href={link.href}>{link.label}</a>
+			))}
+		</nav>
+	</div>
+</footer>
+
+<style>
+	footer {
+		width: 100%;
+		max-width: var(--page-max);
+		margin: 0 auto;
+		padding: 2.25rem var(--page-pad) 2rem;
+		color: #5c6b80;
+		font-size: 0.9rem;
+		border-top: 1px solid rgba(201, 162, 39, 0.28);
+	}
+
+	.inner {
+		display: flex;
+		justify-content: space-between;
+		gap: 1.5rem;
+		flex-wrap: wrap;
+	}
+
+	p {
+		margin: 0;
+	}
+
+	.copy {
+		margin-top: 0.4rem;
+		color: #3d5470;
+		font-size: 0.82rem;
+	}
+
+	nav {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.9rem;
+	}
+
+	nav a {
+		color: #0b2748;
+		text-decoration: none;
+	}
+
+	nav a:hover {
+		text-decoration: underline;
+	}
+</style>

@@ -1,0 +1,153 @@
+---
+import { getCollection } from 'astro:content';
+import constants from '../constants.json';
+
+const posts = (await getCollection('blogFa')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const articles = posts.filter((post) => post.data.kind === 'article');
+const shorts = posts.filter((post) => post.data.kind === 'short');
+---
+
+<section class="page">
+	<h1>{constants.postsPage.title}</h1>
+	<p class="intro">{constants.postsPage.intro}</p>
+
+	<h2>{constants.postsPage.articles}</h2>
+	{articles.length === 0 ? (
+		<p>{constants.postsPage.empty}</p>
+	) : (
+		<ul class="articles">
+			{articles.map((post) => (
+				<li>
+					<a href={`/fa/posts/${post.id}`}>
+						<em>{constants.kinds.article}</em>
+						<time datetime={post.data.pubDate.toISOString()}>
+							{post.data.pubDate.toLocaleDateString('fa-IR')}
+						</time>
+						<strong>{post.data.title}</strong>
+						<span>{post.data.description}</span>
+					</a>
+				</li>
+			))}
+		</ul>
+	)}
+
+	<h2>{constants.postsPage.shorts}</h2>
+	{shorts.length === 0 ? (
+		<p>{constants.postsPage.empty}</p>
+	) : (
+		<ul class="shorts">
+			{shorts.map((post) => (
+				<li>
+					<a href={`/fa/posts/${post.id}`}>
+						<em>{constants.kinds.short}</em>
+						<time datetime={post.data.pubDate.toISOString()}>
+							{post.data.pubDate.toLocaleDateString('fa-IR')}
+						</time>
+						<strong>{post.data.title}</strong>
+					</a>
+				</li>
+			))}
+		</ul>
+	)}
+</section>
+
+<style>
+	.page {
+		padding-top: 2.4rem;
+	}
+
+	h1 {
+		margin: 0 0 0.7rem;
+		font-size: clamp(1.8rem, 4vw, 2.6rem);
+		color: #0b2748;
+	}
+
+	.intro {
+		margin: 0 0 2rem;
+		max-width: 40rem;
+		color: #3d5470;
+		font-size: 1.08rem;
+		line-height: 2;
+	}
+
+	h2 {
+		margin: 0 0 0.9rem;
+		font-size: 1.4rem;
+		color: #0b2748;
+	}
+
+	ul {
+		list-style: none;
+		margin: 0 0 2.2rem;
+		padding: 0;
+	}
+
+	a {
+		display: grid;
+		gap: 0.25rem;
+		text-decoration: none;
+		color: inherit;
+		background: rgba(255, 252, 246, 0.78);
+		border: 1px solid rgba(18, 58, 107, 0.08);
+	}
+
+	.articles {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+	}
+
+	.articles a {
+		padding: 1.2rem 1.25rem;
+		border-inline-start: 4px solid #071428;
+		min-height: 9rem;
+	}
+
+	.shorts {
+		display: grid;
+		gap: 0.55rem;
+	}
+
+	.shorts a {
+		grid-template-columns: auto auto 1fr;
+		align-items: center;
+		gap: 0.85rem;
+		padding: 0.7rem 0.95rem;
+		border-inline-start: 3px solid #1d9a8c;
+	}
+
+	em {
+		font-style: normal;
+		color: #c9a227;
+		font-size: 0.84rem;
+		font-weight: 600;
+	}
+
+	time {
+		color: #1d9a8c;
+		font-size: 0.9rem;
+	}
+
+	strong {
+		color: #0b2748;
+		font-size: 1.1rem;
+	}
+
+	span {
+		color: #5c6b80;
+		line-height: 1.8;
+	}
+
+	@media (max-width: 840px) {
+		.articles {
+			grid-template-columns: 1fr;
+		}
+
+		.shorts a {
+			grid-template-columns: 1fr;
+			gap: 0.2rem;
+		}
+	}
+</style>

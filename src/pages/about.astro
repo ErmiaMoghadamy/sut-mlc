@@ -1,0 +1,9 @@
+---
+import Layout from '../en/layouts/Layout.astro';
+import AboutPage from '../en/components/AboutPage.astro';
+import constants from '../en/constants.json';
+---
+
+<Layout title={constants.about.title} description={constants.about.intro}>
+	<AboutPage />
+</Layout>

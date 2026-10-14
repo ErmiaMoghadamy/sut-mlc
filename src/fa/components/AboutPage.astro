@@ -1,0 +1,161 @@
+---
+import constants from '../constants.json';
+
+const { founder, assistants, core } = constants.about;
+---
+
+<section class="about">
+	<h1>{constants.about.title}</h1>
+	<p class="intro">{constants.about.intro}</p>
+
+	<h2>{constants.about.peopleTitle}</h2>
+
+	<article class="card founder">
+		<div class="badge">{founder.role}</div>
+		<h3>{founder.name}</h3>
+		<a class="email" href={`mailto:${founder.email}`}>{founder.email}</a>
+		<p>{founder.bio}</p>
+	</article>
+
+	<h3 class="group">{constants.about.assistantsTitle}</h3>
+	<div class="assistants">
+		{assistants.map((person) => (
+			<article class="card assistant">
+				<div class="badge">{person.role}</div>
+				<h3>{person.name}</h3>
+				<p>{person.bio}</p>
+			</article>
+		))}
+	</div>
+
+	<h3 class="group">{constants.about.coreTitle}</h3>
+	<div class="core">
+		{core.map((person) => (
+			<article class="card member">
+				<div class="badge">{person.role}</div>
+				<h3>{person.name}</h3>
+			</article>
+		))}
+	</div>
+</section>
+
+<style>
+	.about {
+		padding-top: 2.4rem;
+	}
+
+	h1 {
+		margin: 0 0 0.8rem;
+		font-size: clamp(1.8rem, 4vw, 2.6rem);
+		color: #0b2748;
+	}
+
+	.intro {
+		margin: 0 0 2rem;
+		max-width: 42rem;
+		font-size: 1.08rem;
+		line-height: 2;
+		color: #3d5470;
+	}
+
+	h2 {
+		margin: 0 0 1rem;
+		font-size: 1.45rem;
+		color: #0b2748;
+	}
+
+	.group {
+		margin: 1.8rem 0 0.85rem;
+		font-size: 1.02rem;
+		color: #1d9a8c;
+	}
+
+	.card {
+		background: rgba(255, 252, 246, 0.82);
+		border: 1px solid rgba(18, 58, 107, 0.08);
+		box-shadow: 0 10px 28px rgba(7, 20, 40, 0.05);
+	}
+
+	.badge {
+		display: inline-block;
+		margin-bottom: 0.45rem;
+		color: #c9a227;
+		font-size: 0.84rem;
+		font-weight: 600;
+	}
+
+	.founder {
+		padding: 1.5rem 1.5rem 1.4rem;
+		border-inline-start: 6px solid #071428;
+	}
+
+	.founder h3 {
+		margin: 0;
+		font-size: 1.7rem;
+		color: #0b2748;
+	}
+
+	.email {
+		display: inline-block;
+		margin: 0.45rem 0 0.8rem;
+		color: #1d9a8c;
+		text-decoration: none;
+		font-weight: 600;
+		direction: ltr;
+	}
+
+	.founder p {
+		margin: 0;
+		max-width: 46rem;
+		font-size: 1.05rem;
+		line-height: 2;
+		color: #3d5470;
+	}
+
+	.assistants {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+	}
+
+	.assistant {
+		padding: 1.15rem 1.2rem;
+		border-inline-start: 4px solid #1d9a8c;
+	}
+
+	.assistant h3 {
+		margin: 0 0 0.45rem;
+		font-size: 1.2rem;
+		color: #0b2748;
+	}
+
+	.assistant p {
+		margin: 0;
+		color: #3d5470;
+		line-height: 1.9;
+	}
+
+	.core {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 0.8rem;
+	}
+
+	.member {
+		padding: 0.9rem 1rem;
+		border-inline-start: 3px solid rgba(201, 162, 39, 0.7);
+	}
+
+	.member h3 {
+		margin: 0;
+		font-size: 1.02rem;
+		color: #0b2748;
+	}
+
+	@media (max-width: 840px) {
+		.assistants,
+		.core {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

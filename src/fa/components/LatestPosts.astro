@@ -1,0 +1,110 @@
+---
+import { getCollection } from 'astro:content';
+import constants from '../constants.json';
+
+const posts = (await getCollection('blogFa'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 3);
+---
+
+<section>
+	<div class="heading">
+		<h2>{constants.latestPosts.title}</h2>
+		<a class="all" href="/fa/posts">{constants.latestPosts.all}</a>
+	</div>
+	{posts.length === 0 ? (
+		<p>{constants.latestPosts.empty}</p>
+	) : (
+		<ul>
+			{posts.map((post) => (
+				<li>
+					<a href={`/fa/posts/${post.id}`}>
+						<span class="meta">
+							<time datetime={post.data.pubDate.toISOString()}>
+								{post.data.pubDate.toLocaleDateString('fa-IR')}
+							</time>
+							<em>{constants.kinds[post.data.kind]}</em>
+						</span>
+						<strong>{post.data.title}</strong>
+						<span>{post.data.description}</span>
+					</a>
+				</li>
+			))}
+		</ul>
+	)}
+</section>
+
+<style>
+	.heading {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 0.9rem;
+		margin-bottom: 1.1rem;
+	}
+
+	h2 {
+		margin: 0;
+		font-size: 1.45rem;
+		color: #0b2748;
+	}
+
+	.all {
+		color: #1d9a8c;
+		text-decoration: none;
+		font-size: 0.95rem;
+		font-weight: 600;
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 0.85rem;
+	}
+
+	a {
+		display: grid;
+		gap: 0.32rem;
+		height: 100%;
+		padding: 1.05rem 1.1rem;
+		text-decoration: none;
+		color: inherit;
+		background: rgba(255, 252, 246, 0.72);
+		border: 1px solid rgba(18, 58, 107, 0.08);
+		border-inline-start: 3px solid #1d9a8c;
+		box-shadow: 0 8px 24px rgba(7, 20, 40, 0.04);
+	}
+
+	.meta {
+		display: flex;
+		justify-content: space-between;
+		gap: 0.5rem;
+		color: #1d9a8c;
+		font-size: 0.86rem;
+	}
+
+	em {
+		font-style: normal;
+		color: #c9a227;
+	}
+
+	strong {
+		font-size: 1.08rem;
+		color: #0b2748;
+	}
+
+	span {
+		color: #5c6b80;
+		font-size: 0.95rem;
+		line-height: 1.8;
+	}
+
+	@media (max-width: 840px) {
+		ul {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

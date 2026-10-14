@@ -1,0 +1,99 @@
+---
+import constants from "../constants.json";
+import AmuritBar from "../components/AmuritBar.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const { title, description = constants.hero.subtitle } = Astro.props;
+const pageTitle = title
+    ? `${title} · ${constants.siteName}`
+    : constants.siteName;
+---
+
+<!doctype html>
+<html lang={constants.lang} dir={constants.dir}>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content={description} />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <title>{pageTitle}</title>
+    </head>
+    <body>
+        <!-- <AmuritBar /> -->
+        <Header />
+        <main>
+            <slot />
+        </main>
+        <Footer />
+    </body>
+</html>
+
+<style is:global>
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    :root {
+        --page-max: 76rem;
+        --page-pad: 1.5rem;
+    }
+
+    html {
+        font-family: Vazirmatn, Tahoma, sans-serif;
+        background:
+            radial-gradient(
+                900px 320px at 50% 0,
+                rgba(29, 154, 140, 0.14),
+                transparent 55%
+            ),
+            linear-gradient(180deg, #f7f1e6 0%, #efe4cf 100%);
+        color: #12203a;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    main {
+        flex: 1;
+        width: 100%;
+        max-width: var(--page-max);
+        margin: 0 auto;
+        padding: 0 var(--page-pad) 3.5rem;
+    }
+
+    article {
+        padding-top: 2.4rem;
+        max-width: 46rem;
+    }
+
+    article :where(p, ul, ol) {
+        line-height: 2;
+        color: #2a3b54;
+    }
+
+    article a {
+        color: #1c4f8a;
+    }
+
+    article h1 {
+        color: #0b2748;
+    }
+</style>

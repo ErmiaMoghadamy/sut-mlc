@@ -1,0 +1,82 @@
+{
+	"siteName": "SUT MLC",
+	"siteMark": "Sharif Machine Learning",
+	"lang": "en",
+	"dir": "ltr",
+	"homeHref": "/",
+	"amurit": {
+		"label": "AMURIT | Sharif CS Communities",
+		"href": "https://amurit.ir"
+	},
+	"nav": {
+		"menu": "Menu",
+		"close": "Close",
+		"otherLang": "فارسی",
+		"otherLangHref": "/fa",
+		"links": [
+			{ "label": "Home", "href": "/" },
+			{ "label": "Posts", "href": "/posts" },
+			{ "label": "About us", "href": "/about" }
+		]
+	},
+	"hero": {
+		"kicker": "Sharif University of Technology",
+		"title": "SUT MLC",
+		"subtitle": "A student community for machine learning: talks, notes, and people who learn in public.",
+		"primaryCta": { "label": "Read the posts", "href": "/posts" },
+		"secondaryCta": { "label": "Meet the team", "href": "/about" }
+	},
+	"latestPosts": {
+		"title": "Latest from the weblog",
+		"empty": "No posts yet.",
+		"all": "All posts"
+	},
+	"kinds": {
+		"short": "Short post",
+		"article": "Article"
+	},
+	"postsPage": {
+		"title": "Posts",
+		"intro": "Short notes for quick updates, and longer articles when a topic needs more room.",
+		"shorts": "Short posts",
+		"articles": "Articles",
+		"empty": "Nothing in this section yet."
+	},
+	"about": {
+		"title": "About us",
+		"intro": "SUT MLC is the Machine Learning Community at Sharif University of Technology. We run reading groups, workshops, and a small weblog so students can share what they learn.",
+		"peopleTitle": "People",
+		"founder": {
+			"name": "Ermia Moghadamy",
+			"role": "Founder",
+			"email": "ermia@amurit.ir",
+			"bio": "Started SUT MLC to give Sharif students a clear place for machine learning: sessions, writing, and a small core team that keeps the community moving."
+		},
+		"assistantsTitle": "Assistants",
+		"assistants": [
+			{
+				"name": "TBA",
+				"role": "Assistant",
+				"bio": "Helps run weekly sessions and keeps members involved."
+			},
+			{
+				"name": "TBA",
+				"role": "Assistant",
+				"bio": "Supports workshops, notes, and day-to-day community work."
+			}
+		],
+		"coreTitle": "Core team",
+		"core": [
+			{ "name": "TBA", "role": "Core · Events" },
+			{ "name": "TBA", "role": "Core · Content" },
+			{ "name": "TBA", "role": "Core · Workshops" },
+			{ "name": "TBA", "role": "Core · Outreach" },
+			{ "name": "TBA", "role": "Core · Reading group" },
+			{ "name": "TBA", "role": "Core · Operations" }
+		]
+	},
+	"footer": {
+		"text": "SUT MLC — Sharif University of Technology Machine Learning Community",
+		"copyright": "All rights reserved."
+	}
+}

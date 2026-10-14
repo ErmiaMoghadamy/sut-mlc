@@ -1,0 +1,9 @@
+---
+import Layout from '../../en/layouts/Layout.astro';
+import PostsPage from '../../en/components/PostsPage.astro';
+import constants from '../../en/constants.json';
+---
+
+<Layout title={constants.postsPage.title} description={constants.postsPage.intro}>
+	<PostsPage />
+</Layout>
