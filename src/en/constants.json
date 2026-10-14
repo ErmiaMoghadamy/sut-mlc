@@ -23,6 +23,13 @@
 		"kicker": "Sharif University of Technology",
 		"title": "SUT MLC",
 		"subtitle": "A student community for machine learning: talks, notes, and people who learn in public.",
+		"summary": "We build a thoughtful learning space through reading groups, practical workshops, and public writing that makes ideas clearer and easier to share.",
+		"panelTitle": "What we do",
+		"panelItems": [
+			{ "value": "Study", "meta": "Reading groups" },
+			{ "value": "Build", "meta": "Workshops" },
+			{ "value": "Share", "meta": "Public notes" }
+		],
 		"primaryCta": { "label": "Read the posts", "href": "/posts" },
 		"secondaryCta": { "label": "Meet the team", "href": "/about" }
 	},

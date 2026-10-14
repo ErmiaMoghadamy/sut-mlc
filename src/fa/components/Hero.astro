@@ -3,21 +3,47 @@ import constants from '../constants.json';
 ---
 
 <section class="hero">
-	<p class="kicker">{constants.hero.kicker}</p>
-	<h1>{constants.hero.title}</h1>
-	<span class="ornament" aria-hidden="true"></span>
-	<p class="lead">{constants.hero.subtitle}</p>
-	<div class="actions">
-		<a class="primary" href={constants.hero.primaryCta.href}>{constants.hero.primaryCta.label}</a>
-		<a class="secondary" href={constants.hero.secondaryCta.href}>{constants.hero.secondaryCta.label}</a>
+	<div class="hero-inner">
+		<div class="hero-copy">
+			<p class="kicker">{constants.hero.kicker}</p>
+			<h1>{constants.hero.title}</h1>
+			<span class="ornament" aria-hidden="true"></span>
+			<p class="lead">{constants.hero.subtitle}</p>
+			<p class="summary">{constants.hero.summary}</p>
+			<div class="actions">
+				<a class="primary" href={constants.hero.primaryCta.href}>{constants.hero.primaryCta.label}</a>
+				<a class="secondary" href={constants.hero.secondaryCta.href}>{constants.hero.secondaryCta.label}</a>
+			</div>
+		</div>
+
+		<aside class="info-panel" aria-label={constants.hero.panelTitle}>
+			<p class="panel-label">{constants.hero.panelTitle}</p>
+			<div class="panel-body">
+				{constants.hero.panelItems.map((item) => (
+					<div class="panel-item">
+						<span class="panel-value">{item.value}</span>
+						<span class="panel-meta">{item.meta}</span>
+					</div>
+				))}
+			</div>
+		</aside>
 	</div>
 </section>
 
 <style>
 	.hero {
-		padding: 3.3rem 0 2.4rem;
-		text-align: start;
-		max-width: 40rem;
+		padding: 3.2rem 0 2.8rem;
+	}
+
+	.hero-inner {
+		display: grid;
+		grid-template-columns: minmax(0, 1.55fr) minmax(220px, 0.75fr);
+		gap: 1.6rem;
+		align-items: end;
+	}
+
+	.hero-copy {
+		max-width: 42rem;
 	}
 
 	.kicker {
@@ -29,9 +55,9 @@ import constants from '../constants.json';
 
 	h1 {
 		margin: 0;
-		font-size: clamp(2.1rem, 6vw, 3.2rem);
+		font-size: clamp(2.4rem, 6vw, 3.8rem);
 		font-weight: 700;
-		line-height: 1.45;
+		line-height: 1.35;
 		color: #0b2748;
 		unicode-bidi: isolate;
 	}
@@ -48,7 +74,15 @@ import constants from '../constants.json';
 
 	.lead {
 		margin: 0;
-		font-size: 1.12rem;
+		font-size: 1.18rem;
+		line-height: 1.9;
+		color: #0b2748;
+	}
+
+	.summary {
+		margin: 1rem 0 0;
+		max-width: 36rem;
+		font-size: 1rem;
 		line-height: 2;
 		color: #3d5470;
 	}
@@ -62,19 +96,77 @@ import constants from '../constants.json';
 
 	.actions a {
 		text-decoration: none;
-		padding: 0.62rem 1.15rem;
+		padding: 0.7rem 1.2rem;
 		border-radius: 999px;
 		font-weight: 600;
+		transition: transform 0.18s ease, box-shadow 0.18s ease;
+	}
+
+	.actions a:hover {
+		transform: translateY(-1px);
 	}
 
 	.primary {
 		background: #071428;
 		color: #f4e4a6;
+		box-shadow: 0 8px 18px rgba(7, 20, 40, 0.12);
 	}
 
 	.secondary {
 		background: transparent;
 		color: #0b2748;
 		border: 1px solid rgba(11, 39, 72, 0.28);
+	}
+
+	.info-panel {
+		padding: 1.2rem 1.1rem 0.9rem;
+		border: 1px solid rgba(29, 154, 140, 0.24);
+		border-radius: 1.2rem;
+		background: linear-gradient(180deg, rgba(255, 253, 249, 0.94), rgba(244, 228, 166, 0.18));
+		box-shadow: 0 18px 36px rgba(15, 30, 48, 0.08);
+	}
+
+	.panel-label {
+		margin: 0 0 0.9rem;
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.18em;
+		color: #1d9a8c;
+	}
+
+	.panel-body {
+		display: grid;
+		gap: 0.7rem;
+	}
+
+	.panel-item {
+		display: flex;
+		flex-direction: column;
+		gap: 0.12rem;
+		padding: 0.8rem 0.9rem;
+		border-radius: 0.9rem;
+		background: rgba(255, 255, 255, 0.42);
+		border: 1px solid rgba(11, 39, 72, 0.08);
+	}
+
+	.panel-value {
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: #0b2748;
+	}
+
+	.panel-meta {
+		font-size: 0.9rem;
+		color: #3d5470;
+	}
+
+	@media (max-width: 760px) {
+		.hero-inner {
+			grid-template-columns: 1fr;
+		}
+
+		.hero {
+			padding-top: 2.5rem;
+		}
 	}
 </style>

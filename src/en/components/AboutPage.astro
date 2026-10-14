@@ -5,116 +5,191 @@ const { founder, assistants, core } = constants.about;
 ---
 
 <section class="about">
-	<h1>{constants.about.title}</h1>
-	<p class="intro">{constants.about.intro}</p>
-
-	<h2>{constants.about.peopleTitle}</h2>
-
-	<article class="card founder">
-		<div class="badge">{founder.role}</div>
-		<h3>{founder.name}</h3>
-		<a class="email" href={`mailto:${founder.email}`}>{founder.email}</a>
-		<p>{founder.bio}</p>
-	</article>
-
-	<h3 class="group">{constants.about.assistantsTitle}</h3>
-	<div class="assistants">
-		{assistants.map((person) => (
-			<article class="card assistant">
-				<div class="badge">{person.role}</div>
-				<h3>{person.name}</h3>
-				<p>{person.bio}</p>
-			</article>
-		))}
+	<div class="page-header">
+		<p class="eyebrow">{constants.about.title}</p>
+		<h1>{constants.about.title}</h1>
+		<p class="intro">{constants.about.intro}</p>
 	</div>
 
-	<h3 class="group">{constants.about.coreTitle}</h3>
-	<div class="core">
-		{core.map((person) => (
-			<article class="card member">
-				<div class="badge">{person.role}</div>
-				<h3>{person.name}</h3>
-			</article>
-		))}
+	<div class="mission-grid">
+		<article class="info-card">
+			<span class="card-label">Mission</span>
+			<p>We create a thoughtful place to learn, discuss, and publish ideas in machine learning with curiosity and care.</p>
+		</article>
+		<article class="info-card">
+			<span class="card-label">How we work</span>
+			<p>Through reading groups, workshops, and public notes that make technical learning feel open and human.</p>
+		</article>
 	</div>
+
+	<section class="team-block">
+		<div class="section-heading">
+			<h2>{constants.about.peopleTitle}</h2>
+		</div>
+
+		<article class="card founder">
+			<div class="badge">{founder.role}</div>
+			<h3>{founder.name}</h3>
+			<a class="email" href={`mailto:${founder.email}`}>{founder.email}</a>
+			<p>{founder.bio}</p>
+		</article>
+
+		<h3 class="group">{constants.about.assistantsTitle}</h3>
+		<div class="assistants">
+			{assistants.map((person) => (
+				<article class="card assistant">
+					<div class="badge">{person.role}</div>
+					<h3>{person.name}</h3>
+					<p>{person.bio}</p>
+				</article>
+			))}
+		</div>
+
+		<h3 class="group">{constants.about.coreTitle}</h3>
+		<div class="core">
+			{core.map((person) => (
+				<article class="card member">
+					<div class="badge">{person.role}</div>
+					<h3>{person.name}</h3>
+				</article>
+			))}
+		</div>
+	</section>
 </section>
 
 <style>
 	.about {
-		padding-top: 2.4rem;
+		padding-top: 2.6rem;
+	}
+
+	.page-header {
+		padding: 1.2rem 0 0.3rem;
+	}
+
+	.eyebrow {
+		margin: 0 0 0.55rem;
+		color: #1d9a8c;
+		font-size: 0.72rem;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+		font-weight: 700;
 	}
 
 	h1 {
 		margin: 0 0 0.8rem;
 		font-family: "Cormorant Garamond", Georgia, serif;
-		font-size: clamp(2.1rem, 4vw, 3rem);
+		font-size: clamp(2.5rem, 5vw, 3.8rem);
+		line-height: 1.04;
+		letter-spacing: -0.03em;
 		color: #0b2748;
 	}
 
 	.intro {
-		margin: 0 0 2rem;
+		margin: 0;
 		max-width: 42rem;
 		font-size: 1.12rem;
-		line-height: 1.7;
+		line-height: 1.8;
 		color: #3d5470;
 	}
 
+	.mission-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1rem;
+		margin: 1.5rem 0 2.2rem;
+	}
+
+	.info-card {
+		padding: 1.2rem 1.2rem 1rem;
+		border: 1px solid rgba(11, 39, 72, 0.08);
+		border-radius: 1rem;
+		background: linear-gradient(180deg, rgba(255, 253, 249, 0.96), rgba(244, 228, 166, 0.12));
+		box-shadow: 0 12px 24px rgba(15, 30, 48, 0.04);
+	}
+
+	.card-label {
+		display: inline-block;
+		margin-bottom: 0.65rem;
+		color: #1d9a8c;
+		font-size: 0.72rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		font-weight: 700;
+	}
+
+	.info-card p {
+		margin: 0;
+		font-size: 1rem;
+		line-height: 1.8;
+		color: #3d5470;
+	}
+
+	.team-block {
+		margin-top: 0.5rem;
+	}
+
+	.section-heading {
+		margin-bottom: 1rem;
+	}
+
 	h2 {
-		margin: 0 0 1rem;
+		margin: 0;
 		font-family: "Cormorant Garamond", Georgia, serif;
-		font-size: 1.7rem;
+		font-size: clamp(1.8rem, 3vw, 2.5rem);
 		color: #0b2748;
 	}
 
 	.group {
-		margin: 1.8rem 0 0.85rem;
-		font-size: 1.05rem;
-		color: #1d9a8c;
-		letter-spacing: 0.08em;
+		margin: 2rem 0 0.9rem;
+		font-size: 0.8rem;
+		letter-spacing: 0.12em;
 		text-transform: uppercase;
+		color: #1d9a8c;
 	}
 
 	.card {
 		background: rgba(255, 252, 246, 0.82);
 		border: 1px solid rgba(18, 58, 107, 0.08);
-		box-shadow: 0 10px 28px rgba(7, 20, 40, 0.05);
+		border-radius: 1rem;
+		box-shadow: 0 12px 28px rgba(7, 20, 40, 0.05);
 	}
 
 	.badge {
 		display: inline-block;
 		margin-bottom: 0.45rem;
 		color: #c9a227;
-		font-size: 0.76rem;
+		font-size: 0.74rem;
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
-		font-weight: 600;
+		font-weight: 700;
 	}
 
 	.founder {
-		padding: 1.6rem 1.7rem 1.5rem;
-		border-inline-start: 6px solid #0b2748;
+		padding: 1.5rem 1.5rem 1.35rem;
+		border-inline-start: 5px solid #0b2748;
 	}
 
 	.founder h3 {
 		margin: 0;
 		font-family: "Cormorant Garamond", Georgia, serif;
-		font-size: 2.1rem;
+		font-size: clamp(2rem, 3vw, 2.6rem);
+		line-height: 1.1;
 		color: #0b2748;
 	}
 
 	.email {
 		display: inline-block;
-		margin: 0.45rem 0 0.8rem;
+		margin: 0.5rem 0 0.8rem;
 		color: #1d9a8c;
 		text-decoration: none;
-		font-weight: 600;
+		font-weight: 700;
 	}
 
 	.founder p {
 		margin: 0;
 		max-width: 46rem;
-		font-size: 1.05rem;
-		line-height: 1.7;
+		font-size: 1.04rem;
+		line-height: 1.8;
 		color: #3d5470;
 	}
 
@@ -125,40 +200,41 @@ const { founder, assistants, core } = constants.about;
 	}
 
 	.assistant {
-		padding: 1.2rem 1.25rem;
+		padding: 1.15rem 1.2rem;
 		border-inline-start: 4px solid #1d9a8c;
 	}
 
 	.assistant h3 {
 		margin: 0 0 0.45rem;
-		font-size: 1.25rem;
+		font-size: 1.2rem;
 		color: #0b2748;
 	}
 
 	.assistant p {
 		margin: 0;
 		color: #3d5470;
-		line-height: 1.55;
+		line-height: 1.75;
 	}
 
 	.core {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 0.8rem;
 	}
 
 	.member {
 		padding: 0.9rem 1rem;
-		border-inline-start: 3px solid rgba(201, 162, 39, 0.7);
+		border-inline-start: 3px solid rgba(201, 162, 39, 0.8);
 	}
 
 	.member h3 {
 		margin: 0;
-		font-size: 1.02rem;
+		font-size: 1rem;
 		color: #0b2748;
 	}
 
 	@media (max-width: 840px) {
+		.mission-grid,
 		.assistants,
 		.core {
 			grid-template-columns: 1fr;
