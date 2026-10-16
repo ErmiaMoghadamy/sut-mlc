@@ -50,12 +50,25 @@ const pageTitle = title
     :root {
         --page-max: 76rem;
         --page-pad: 1.5rem;
+        --navy-950: #071428;
+        --navy-900: #0d2138;
+        --navy-700: #163457;
+        --teal-600: #1c8d87;
+        --teal-500: #2ea59b;
+        --gold-500: #d0a74a;
+        --gold-400: #e6ca7a;
+        --paper-100: #f8f4ed;
+        --paper-200: #f3ebdf;
+        --stone-900: #1a1f2c;
+        --stone-700: #44536d;
+        --stone-500: #6b7a8d;
+        --line: rgba(11, 39, 72, 0.09);
     }
 
     html {
         font-family: "Source Sans 3", system-ui, sans-serif;
-        background: linear-gradient(180deg, #f6f0e7 0%, #efe4d1 100%);
-        color: #1d1a17;
+        background: var(--paper-100);
+        color: var(--stone-900);
         scroll-behavior: smooth;
     }
 
@@ -66,10 +79,10 @@ const pageTitle = title
         display: flex;
         flex-direction: column;
         background:
-            radial-gradient(circle at top, rgba(29, 154, 140, 0.14), transparent 38%),
-            radial-gradient(circle at bottom left, rgba(201, 162, 39, 0.12), transparent 34%),
-            linear-gradient(180deg, #f7f2e8 0%, #f0e5d1 100%);
-        color: #1d1a17;
+            radial-gradient(circle at top, rgba(44, 148, 138, 0.18), transparent 26%),
+            radial-gradient(circle at bottom left, rgba(208, 167, 74, 0.12), transparent 28%),
+            linear-gradient(180deg, #faf6ef 0%, #f3ebdf 100%);
+        color: var(--stone-900);
     }
 
     body::before {
@@ -78,8 +91,8 @@ const pageTitle = title
         inset: 0;
         pointer-events: none;
         background-image: url('/patterns/girih.svg');
-        background-size: 180px 180px;
-        opacity: 0.08;
+        background-size: 170px 170px;
+        opacity: 0.06;
         mix-blend-mode: multiply;
     }
 
@@ -89,7 +102,7 @@ const pageTitle = title
         width: 100%;
         max-width: var(--page-max);
         margin: 0 auto;
-        padding: 1.8rem var(--page-pad) 3.5rem;
+        padding: 1.25rem var(--page-pad) 4rem;
     }
 
     article {
@@ -99,22 +112,26 @@ const pageTitle = title
 
     article :where(p, ul, ol) {
         line-height: 1.8;
-        color: #2d2a27;
+        color: #2d3743;
     }
 
     article a {
-        color: #1c4f8a;
+        color: #114b8a;
     }
 
     article h1,
     article h2,
     article h3 {
         font-family: "Cormorant Garamond", Georgia, serif;
-        color: #0f1d2d;
+        color: var(--navy-900);
         letter-spacing: -0.02em;
     }
 
     article h1 {
         font-weight: 700;
+    }
+
+    ::selection {
+        background: rgba(28, 141, 135, 0.18);
     }
 </style>

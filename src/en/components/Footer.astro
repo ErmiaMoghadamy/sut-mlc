@@ -21,19 +21,20 @@ const year = new Date().getFullYear();
 <style>
 	footer {
 		width: 100%;
-		max-width: var(--page-max);
-		margin: 0 auto;
-		padding: 2.25rem var(--page-pad) 2rem;
-		color: #5c6b80;
-		font-size: 0.9rem;
-		border-top: 1px solid rgba(201, 162, 39, 0.28);
+		background: linear-gradient(180deg, rgba(8, 27, 47, 0.98), #071428);
+		color: rgba(245, 234, 208, 0.82);
+		margin-top: 1rem;
 	}
 
 	.inner {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		gap: 1.5rem;
 		flex-wrap: wrap;
+		max-width: var(--page-max);
+		margin: 0 auto;
+		padding: 2rem var(--page-pad);
 	}
 
 	p {
@@ -41,9 +42,9 @@ const year = new Date().getFullYear();
 	}
 
 	.copy {
-		margin-top: 0.4rem;
-		color: #3d5470;
-		font-size: 0.82rem;
+		margin-top: 0.42rem;
+		color: rgba(245, 234, 208, 0.7);
+		font-size: 0.8rem;
 	}
 
 	nav {
@@ -53,8 +54,9 @@ const year = new Date().getFullYear();
 	}
 
 	nav a {
-		color: #0b2748;
+		color: #f5ead0;
 		text-decoration: none;
+		opacity: 0.9;
 	}
 
 	nav a:hover {
