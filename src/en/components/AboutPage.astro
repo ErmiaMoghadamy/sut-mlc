@@ -79,19 +79,19 @@ const { leaders, core, mission, summaryItems } = constants.about;
 
 <style>
 	.about {
-		padding-top: 2.4rem;
+		padding-top: var(--space-8);
 	}
 
 	.page-header {
-		padding: 0.5rem 0 0.25rem;
+		padding: var(--space-2) 0 var(--space-1);
 	}
 
 	.header-topline {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 0.75rem;
-		margin-bottom: 1rem;
+		gap: var(--space-3);
+		margin-bottom: var(--space-4);
 	}
 
 	.eyebrow,
@@ -131,12 +131,12 @@ const { leaders, core, mission, summaryItems } = constants.about;
 	.header-grid {
 		display: grid;
 		grid-template-columns: minmax(0, 1.5fr) minmax(220px, 0.75fr);
-		gap: 1.2rem;
+		gap: var(--space-5);
 		align-items: stretch;
 	}
 
 	.title-block {
-		padding: 0.9rem 0 0;
+		padding: var(--space-4) 0 0;
 	}
 
 	h1 {
@@ -197,12 +197,12 @@ const { leaders, core, mission, summaryItems } = constants.about;
 	.mission-grid {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 1rem;
-		margin: 1.5rem 0 2.3rem;
+		gap: var(--space-4);
+		margin: var(--space-8) 0;
 	}
 
 	.info-card {
-		padding: 1.15rem 1.1rem 1.05rem;
+		padding: var(--space-5) var(--space-4) var(--space-4);
 		border: 1px solid rgba(14, 35, 59, 0.08);
 		border-radius: 1.1rem;
 		background: rgba(255,255,255,0.7);
@@ -228,11 +228,12 @@ const { leaders, core, mission, summaryItems } = constants.about;
 
 	.leadership-block,
 	.core-block {
-		margin-top: 0.2rem;
+		margin-top: var(--space-10);
+		margin-bottom: var(--space-8);
 	}
 
 	.section-heading {
-		margin-bottom: 1rem;
+		margin-bottom: var(--space-4);
 	}
 
 	h2 {
@@ -246,11 +247,11 @@ const { leaders, core, mission, summaryItems } = constants.about;
 	.leader-grid {
 		display: grid;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 1.15rem;
+		gap: var(--space-5);
 	}
 
 	.leader-card {
-		padding: 1.2rem 1.15rem 1.15rem;
+		padding: var(--space-5) var(--space-5) var(--space-5);
 		border: 1px solid rgba(14, 35, 59, 0.1);
 		border-radius: 1.2rem;
 		background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(242,246,247,0.94));

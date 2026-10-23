@@ -45,31 +45,36 @@ const pageTitle = title
     :root {
         --page-max: 76rem;
         --page-pad: 1.5rem;
-        --navy-950: #071428;
-        --navy-900: #0d2138;
-        --navy-800: #122b45;
-        --navy-700: #163457;
-        --teal-700: #0f6d68;
-        --teal-600: #1c8d87;
-        --teal-500: #2ea59b;
-        --gold-600: #9a7422;
-        --gold-500: #d0a74a;
-        --gold-400: #e6ca7a;
-        --paper-100: #f5f1ea;
-        --paper-200: #ece6dc;
-        --paper-300: #e3ddd2;
-        --stone-900: #162330;
-        --stone-700: #44536d;
-        --stone-500: #6b7a8d;
-        --line: rgba(15, 33, 56, 0.1);
-        --card: rgba(255, 255, 255, 0.7);
-        --shadow-soft: 0 20px 45px rgba(11, 25, 40, 0.08);
+        --space-1: 0.25rem;
+        --space-2: 0.5rem;
+        --space-3: 0.75rem;
+        --space-4: 1rem;
+        --space-5: 1.25rem;
+        --space-6: 1.5rem;
+        --space-8: 2rem;
+        --space-10: 2.5rem;
+        --space-12: 3rem;
+        --bg: #f4f6f7;
+        --bg-strong: #edf3f4;
+        --surface: rgba(255, 255, 255, 0.78);
+        --surface-strong: #ffffff;
+        --ink: #0f172a;
+        --ink-soft: #334155;
+        --muted: #5f7284;
+        --line: rgba(15, 23, 42, 0.08);
+        --primary: #0b2238;
+        --primary-strong: #061827;
+        --accent: #1b7d76;
+        --accent-soft: rgba(27, 125, 118, 0.12);
+        --gold: #b58b2b;
+        --shadow-soft: 0 24px 42px rgba(15, 23, 42, 0.08);
+        --shadow-card: 0 18px 28px rgba(15, 23, 42, 0.05);
     }
 
     html {
         font-family: "Vazirmatn", Tahoma, sans-serif;
-        background: var(--paper-100);
-        color: var(--stone-900);
+        background: var(--bg);
+        color: var(--ink);
         scroll-behavior: smooth;
     }
 
@@ -80,10 +85,10 @@ const pageTitle = title
         display: flex;
         flex-direction: column;
         background:
-            radial-gradient(circle at 12% 0%, rgba(28, 141, 135, 0.14), transparent 20%),
-            radial-gradient(circle at 90% 10%, rgba(208, 167, 74, 0.14), transparent 22%),
-            linear-gradient(180deg, #f8f4ee 0%, #f0efe9 100%);
-        color: var(--stone-900);
+            radial-gradient(circle at top left, rgba(27, 125, 118, 0.09), transparent 24%),
+            radial-gradient(circle at top right, rgba(181, 139, 43, 0.09), transparent 18%),
+            linear-gradient(180deg, #f7f4ee 0%, #eef3f5 100%);
+        color: var(--ink);
     }
 
     body::before {
@@ -91,10 +96,8 @@ const pageTitle = title
         position: fixed;
         inset: 0;
         pointer-events: none;
-        background-image: url('/patterns/girih.svg');
-        background-size: 150px 150px;
-        opacity: 0.05;
-        mix-blend-mode: multiply;
+        background: radial-gradient(circle at center, rgba(11, 34, 56, 0.03), transparent 65%);
+        opacity: 0.8;
     }
 
     main {
@@ -102,27 +105,27 @@ const pageTitle = title
         flex: 1;
         width: min(100%, calc(var(--page-max) + 2rem));
         margin: 0 auto;
-        padding: 1.5rem var(--page-pad) 4rem;
+        padding: var(--space-6) var(--page-pad) var(--space-12);
     }
 
     article {
-        padding-top: 1rem;
+        padding-top: var(--space-4);
         max-width: 46rem;
     }
 
     article :where(p, ul, ol) {
         line-height: 1.8;
-        color: #2d3743;
+        color: var(--ink-soft);
     }
 
     article a {
-        color: #114b8a;
+        color: #0f5a8b;
     }
 
     article h1,
     article h2,
     article h3 {
-        color: var(--navy-900);
+        color: var(--primary-strong);
         letter-spacing: -0.02em;
     }
 
@@ -131,10 +134,10 @@ const pageTitle = title
     }
 
     a {
-        transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+        transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
     ::selection {
-        background: rgba(28, 141, 135, 0.16);
+        background: rgba(27, 125, 118, 0.16);
     }
 </style>

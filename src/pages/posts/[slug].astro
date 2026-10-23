@@ -52,17 +52,17 @@ const readTime = Math.max(2, Math.ceil((post.body || '').trim().split(/\s+/).fil
 
 	.masthead {
 		padding: 1.3rem 1.4rem 1rem;
-		border: 1px solid rgba(11, 39, 72, 0.08);
-		border-radius: 1.3rem;
-		background: linear-gradient(180deg, rgba(255, 253, 249, 0.96), rgba(244, 228, 166, 0.15));
-		box-shadow: 0 18px 32px rgba(15, 30, 48, 0.06);
+		border: 1px solid rgba(15, 23, 42, 0.08);
+		border-radius: 1.4rem;
+		background: linear-gradient(135deg, rgba(255,255,255,0.92), rgba(239,245,247,0.9));
+		box-shadow: 0 18px 30px rgba(15, 23, 42, 0.04);
 	}
 
 	.back-link {
 		display: inline-flex;
 		align-items: center;
 		margin-bottom: 0.85rem;
-		color: #1d9a8c;
+		color: var(--accent);
 		font-weight: 700;
 		text-decoration: none;
 	}
@@ -73,7 +73,7 @@ const readTime = Math.max(2, Math.ceil((post.body || '').trim().split(/\s+/).fil
 		align-items: center;
 		gap: 0.8rem;
 		margin-bottom: 0.65rem;
-		color: #1d9a8c;
+		color: var(--accent);
 		font-size: 0.8rem;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
@@ -81,20 +81,20 @@ const readTime = Math.max(2, Math.ceil((post.body || '').trim().split(/\s+/).fil
 
 	.kind {
 		font-weight: 700;
-		color: #c9a227;
+		color: #9a7422;
 	}
 
 	time {
-		color: #1d9a8c;
+		color: var(--accent);
 	}
 
 	h1 {
 		margin: 0 0 0.7rem;
 		font-family: "Cormorant Garamond", Georgia, serif;
-		font-size: clamp(2.6rem, 5vw, 4rem);
+		font-size: clamp(2.8rem, 5vw, 4.2rem);
 		line-height: 1.04;
 		letter-spacing: -0.03em;
-		color: #0b2748;
+		color: var(--primary-strong);
 	}
 
 	.dek {
@@ -102,7 +102,7 @@ const readTime = Math.max(2, Math.ceil((post.body || '').trim().split(/\s+/).fil
 		max-width: 42rem;
 		font-size: 1.08rem;
 		line-height: 1.75;
-		color: #3d5470;
+		color: var(--ink-soft);
 	}
 
 	.read-meta {
@@ -117,9 +117,9 @@ const readTime = Math.max(2, Math.ceil((post.body || '').trim().split(/\s+/).fil
 		align-items: center;
 		padding: 0.42rem 0.7rem;
 		border-radius: 999px;
-		background: rgba(11, 39, 72, 0.04);
-		border: 1px solid rgba(11, 39, 72, 0.08);
-		color: #0b2748;
+		background: rgba(15, 23, 42, 0.03);
+		border: 1px solid rgba(15, 23, 42, 0.08);
+		color: var(--primary);
 		font-size: 0.8rem;
 		font-weight: 600;
 	}
@@ -127,10 +127,10 @@ const readTime = Math.max(2, Math.ceil((post.body || '').trim().split(/\s+/).fil
 	.post-body {
 		margin-top: 1.25rem;
 		padding: 1.4rem 1.4rem 1.2rem;
-		background: rgba(255, 255, 255, 0.72);
-		border: 1px solid rgba(11, 39, 72, 0.08);
+		background: rgba(255, 255, 255, 0.76);
+		border: 1px solid rgba(15, 23, 42, 0.08);
 		border-radius: 1.2rem;
-		box-shadow: 0 10px 24px rgba(11, 39, 72, 0.04);
+		box-shadow: 0 12px 24px rgba(15, 23, 42, 0.04);
 	}
 
 	.post-body :global(p),
@@ -138,7 +138,7 @@ const readTime = Math.max(2, Math.ceil((post.body || '').trim().split(/\s+/).fil
 	.post-body :global(ol),
 	.post-body :global(li),
 	.post-body :global(blockquote) {
-		color: #2a3b54;
+		color: var(--ink-soft);
 	}
 
 	.post-body :global(p) {
@@ -150,12 +150,12 @@ const readTime = Math.max(2, Math.ceil((post.body || '').trim().split(/\s+/).fil
 	.post-body :global(h2),
 	.post-body :global(h3) {
 		margin: 2rem 0 0.8rem;
-		color: #0b2748;
+		color: var(--primary-strong);
 		line-height: 1.25;
 	}
 
 	.post-body :global(h2) {
-		font-size: clamp(1.6rem, 2.3vw, 2.1rem);
+		font-size: clamp(1.7rem, 2.3vw, 2.2rem);
 	}
 
 	.post-body :global(h3) {
@@ -176,20 +176,20 @@ const readTime = Math.max(2, Math.ceil((post.body || '').trim().split(/\s+/).fil
 	.post-body :global(blockquote) {
 		margin: 1.4rem 0;
 		padding: 0.8rem 1rem 0.8rem 1.2rem;
-		border-inline-start: 4px solid #1d9a8c;
-		background: rgba(29, 154, 140, 0.04);
+		border-inline-start: 4px solid var(--accent);
+		background: rgba(27, 125, 118, 0.04);
 		border-radius: 0 0.7rem 0.7rem 0;
 		font-style: italic;
 	}
 
 	.post-body :global(a) {
-		color: #1d4f8d;
+		color: #0f5a8b;
 	}
 
 	.post-body :global(code) {
 		padding: 0.15rem 0.35rem;
 		border-radius: 0.35rem;
-		background: rgba(11, 39, 72, 0.06);
+		background: rgba(15, 23, 42, 0.05);
 		font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
 	}
 
