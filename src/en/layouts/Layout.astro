@@ -52,21 +52,24 @@ const pageTitle = title
         --space-8: 2rem;
         --space-10: 2.5rem;
         --space-12: 3rem;
-        --bg: #f4f6f7;
-        --bg-strong: #edf3f4;
-        --surface: rgba(255, 255, 255, 0.78);
-        --surface-strong: #ffffff;
-        --ink: #0f172a;
-        --ink-soft: #334155;
-        --muted: #5f7284;
-        --line: rgba(15, 23, 42, 0.08);
-        --primary: #0b2238;
-        --primary-strong: #061827;
-        --accent: #1b7d76;
-        --accent-soft: rgba(27, 125, 118, 0.12);
-        --gold: #b58b2b;
-        --shadow-soft: 0 24px 42px rgba(15, 23, 42, 0.08);
-        --shadow-card: 0 18px 28px rgba(15, 23, 42, 0.05);
+        --bg: #1e2430;
+        --bg-strong: #283446;
+        --surface: rgba(40, 52, 70, 0.94);
+        --surface-strong: #354052;
+        --ink: #e8eef5;
+        --ink-soft: #b8c5d6;
+        --muted: #8a9bb3;
+        --line: rgba(138, 155, 179, 0.2);
+        --primary: #e8eef5;
+        --primary-strong: #f5f7fa;
+        --accent: #b8860b;
+        --accent-strong: #d4a545;
+        --accent-soft: rgba(184, 134, 11, 0.1);
+        --teal: #4a9b95;
+        --teal-soft: rgba(74, 155, 149, 0.12);
+        --slate: #354052;
+        --shadow-soft: 0 26px 58px rgba(30, 36, 48, 0.3);
+        --shadow-card: 0 18px 34px rgba(30, 36, 48, 0.25);
     }
 
     html {
@@ -83,9 +86,10 @@ const pageTitle = title
         display: flex;
         flex-direction: column;
         background:
-            radial-gradient(circle at top left, rgba(27, 125, 118, 0.09), transparent 24%),
-            radial-gradient(circle at top right, rgba(181, 139, 43, 0.09), transparent 18%),
-            linear-gradient(180deg, #f7f4ee 0%, #eef3f5 100%);
+            radial-gradient(circle at top left, rgba(74, 155, 149, 0.1), transparent 25%),
+            radial-gradient(circle at top right, rgba(184, 134, 11, 0.1), transparent 22%),
+            radial-gradient(circle at bottom left, rgba(74, 155, 149, 0.05), transparent 30%),
+            linear-gradient(180deg, #1e2430 0%, #283446 100%);
         color: var(--ink);
     }
 
@@ -94,8 +98,10 @@ const pageTitle = title
         position: fixed;
         inset: 0;
         pointer-events: none;
-        background: radial-gradient(circle at center, rgba(11, 34, 56, 0.03), transparent 65%);
-        opacity: 0.8;
+        background: 
+            linear-gradient(180deg, rgba(30, 36, 48, 0.12), rgba(30, 36, 48, 0)),
+            radial-gradient(circle at 50% 50%, rgba(74, 155, 149, 0.03), transparent 50%);
+        opacity: 1;
     }
 
     main {
@@ -103,7 +109,7 @@ const pageTitle = title
         flex: 1;
         width: min(100%, calc(var(--page-max) + 2rem));
         margin: 0 auto;
-        padding: var(--space-6) var(--page-pad) var(--space-12);
+        padding: clamp(1.25rem, 2vw, 2rem) var(--page-pad) 4rem;
     }
 
     article {
@@ -114,10 +120,11 @@ const pageTitle = title
     article :where(p, ul, ol) {
         line-height: 1.8;
         color: var(--ink-soft);
+        font-weight: 400;
     }
 
     article a {
-        color: #0f5a8b;
+        color: #6bc7c1;
     }
 
     article h1,
@@ -125,11 +132,12 @@ const pageTitle = title
     article h3 {
         font-family: "Cormorant Garamond", Georgia, serif;
         color: var(--primary-strong);
-        letter-spacing: -0.02em;
+        letter-spacing: -0.025em;
+        font-weight: 600;
     }
 
     article h1 {
-        font-weight: 700;
+        font-weight: 600;
     }
 
     a {
@@ -137,6 +145,6 @@ const pageTitle = title
     }
 
     ::selection {
-        background: rgba(27, 125, 118, 0.16);
+        background: rgba(74, 155, 149, 0.2);
     }
 </style>

@@ -29,8 +29,8 @@ const shorts = posts.filter((post) => post.data.kind === 'short');
 			<p class="empty">{constants.postsPage.empty}</p>
 		) : (
 			<ul class="articles">
-				{articles.map((post) => (
-					<li>
+				{articles.map((post, index) => (
+					<li class:list={['article-item', `article-tone-${(index % 3) + 1}`]}>
 						<a href={`/posts/${post.id}`}>
 							<div class="meta-row">
 								<em>{constants.kinds.article}</em>
@@ -59,8 +59,8 @@ const shorts = posts.filter((post) => post.data.kind === 'short');
 			<p class="empty">{constants.postsPage.empty}</p>
 		) : (
 			<ul class="shorts">
-				{shorts.map((post) => (
-					<li>
+				{shorts.map((post, index) => (
+					<li class:list={['short-item', `short-tone-${(index % 2) + 1}`]}>
 						<a href={`/posts/${post.id}`}>
 							<em>{constants.kinds.short}</em>
 							<time datetime={post.data.pubDate.toISOString()}>
@@ -81,7 +81,7 @@ const shorts = posts.filter((post) => post.data.kind === 'short');
 
 <style>
 	.page {
-		padding-top: 2.6rem;
+		padding-top: 2.4rem;
 	}
 
 	.page-header {
@@ -90,11 +90,11 @@ const shorts = posts.filter((post) => post.data.kind === 'short');
 		align-items: end;
 		gap: 1rem;
 		margin-bottom: 1.8rem;
-		padding: 1.3rem 1.4rem;
-		border: 1px solid rgba(15, 23, 42, 0.08);
-		border-radius: 1.4rem;
-		background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(239,245,247,0.9));
-		box-shadow: 0 18px 30px rgba(15, 23, 42, 0.04);
+		padding: 1.4rem 1.5rem;
+		border: 1px solid rgba(138, 155, 179, 0.1);
+		border-radius: 1.5rem;
+		background: linear-gradient(135deg, rgba(37, 46, 63, 0.96), rgba(45, 56, 74, 0.94));
+		box-shadow: var(--shadow-card);
 	}
 
 	h1 {
@@ -123,10 +123,10 @@ const shorts = posts.filter((post) => post.data.kind === 'short');
 	.summary-badges span {
 		display: inline-flex;
 		align-items: center;
-		padding: 0.48rem 0.8rem;
+		padding: 0.5rem 0.8rem;
 		border-radius: 999px;
-		background: rgba(27, 125, 118, 0.08);
-		border: 1px solid rgba(27, 125, 118, 0.18);
+		background: var(--teal-soft);
+		border: 1px solid rgba(74, 155, 149, 0.18);
 		color: var(--primary);
 		font-size: 0.8rem;
 		font-weight: 700;
@@ -155,19 +155,18 @@ const shorts = posts.filter((post) => post.data.kind === 'short');
 
 	a {
 		display: grid;
-		gap: 0.32rem;
+		gap: 0.34rem;
 		text-decoration: none;
 		color: inherit;
-		background: rgba(255,255,255,0.72);
-		border: 1px solid rgba(15, 23, 42, 0.08);
-		border-radius: 1rem;
+		border: 1px solid rgba(138, 155, 179, 0.1);
+		border-radius: 1.15rem;
 		transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
 	}
 
 	a:hover {
 		transform: translateY(-1px);
-		box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
-		border-color: rgba(27, 125, 118, 0.2);
+		box-shadow: 0 14px 24px rgba(26, 32, 44, 0.12);
+		border-color: rgba(74, 155, 149, 0.2);
 	}
 
 	.articles {
@@ -176,54 +175,87 @@ const shorts = posts.filter((post) => post.data.kind === 'short');
 		gap: 1rem;
 	}
 
+	.article-item {
+		--article-bg: linear-gradient(180deg, rgba(37, 46, 63, 0.96), rgba(45, 56, 74, 0.96));
+		--article-accent: var(--primary);
+		--article-accent-soft: rgba(184, 134, 11, 0.15);
+	}
+
+	.article-tone-2 {
+		--article-bg: linear-gradient(180deg, rgba(45, 56, 74, 0.96), rgba(37, 46, 63, 0.96));
+		--article-accent: var(--teal);
+		--article-accent-soft: rgba(74, 155, 149, 0.16);
+	}
+
+	.article-tone-3 {
+		--article-bg: linear-gradient(180deg, rgba(45, 56, 74, 0.96), rgba(37, 46, 63, 0.96));
+		--article-accent: var(--accent-strong);
+		--article-accent-soft: rgba(184, 134, 11, 0.16);
+	}
+
 	.articles a {
 		padding: 1.2rem 1.25rem;
-		border-inline-start: 4px solid var(--primary);
-		min-height: 9.6rem;
+		min-height: 10rem;
+		background: var(--article-bg);
+		border-inline-start: 4px solid var(--article-accent);
 	}
 
 	.shorts {
 		display: grid;
-		gap: 0.7rem;
+		gap: 0.8rem;
+	}
+
+	.short-item {
+		--short-bg: rgba(37, 46, 63, 0.9);
+		--short-accent: var(--teal);
+	}
+
+	.short-tone-2 {
+		--short-bg: rgba(45, 56, 74, 0.9);
+		--short-accent: var(--accent-strong);
 	}
 
 	.shorts a {
 		grid-template-columns: auto auto 1fr;
 		align-items: center;
-		gap: 0.9rem;
-		padding: 0.8rem 0.95rem;
-		border-inline-start: 3px solid var(--accent);
+		gap: 0.8rem;
+		padding: 0.9rem 1rem;
+		background: var(--short-bg);
+		border-inline-start: 3px solid var(--short-accent);
 	}
 
 	.meta-row {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		gap: 0.75rem;
+		gap: 0.8rem;
 	}
 
 	em {
 		font-style: normal;
-		color: #9a7422;
-		font-size: 0.72rem;
+		color: var(--article-accent, var(--short-accent));
+		background: var(--article-accent-soft, rgba(74, 155, 149, 0.12));
+		padding: 0.25rem 0.5rem;
+		border-radius: 999px;
+		font-size: 0.7rem;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
 		font-weight: 700;
 	}
 
 	time {
-		color: var(--accent);
+		color: var(--muted);
 		font-size: 0.8rem;
 	}
 
 	strong {
 		color: var(--primary-strong);
 		font-size: 1.08rem;
-		line-height: 1.4;
+		line-height: 1.45;
 	}
 
 	span {
-		color: var(--muted);
+		color: var(--ink-soft);
 		line-height: 1.6;
 	}
 
@@ -249,7 +281,7 @@ const shorts = posts.filter((post) => post.data.kind === 'short');
 
 		.shorts a {
 			grid-template-columns: 1fr;
-			gap: 0.25rem;
+			gap: 0.3rem;
 		}
 	}
 </style>

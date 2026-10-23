@@ -16,8 +16,8 @@ const posts = (await getCollection('blogFa'))
 		<p class="empty">{constants.latestPosts.empty}</p>
 	) : (
 		<ul>
-			{posts.map((post) => (
-				<li>
+			{posts.map((post, index) => (
+				<li class:list={['post-item', `tone-${(index % 3) + 1}`]}>
 					<a href={`/fa/posts/${post.id}`}>
 						<span class="meta">
 							<time datetime={post.data.pubDate.toISOString()}>
@@ -44,18 +44,18 @@ const posts = (await getCollection('blogFa'))
 		align-items: baseline;
 		justify-content: space-between;
 		gap: 1rem;
-		margin-bottom: 1.1rem;
+		margin-bottom: 1.2rem;
 	}
 
 	h2 {
 		margin: 0;
 		font-family: "Cormorant Garamond", Georgia, serif;
 		font-size: clamp(2.1rem, 3vw, 2.8rem);
-		color: #0c2138;
+		color: var(--primary-strong);
 	}
 
 	.all {
-		color: #1b8e86;
+		color: var(--teal);
 		text-decoration: none;
 		font-size: 0.92rem;
 		font-weight: 700;
@@ -76,23 +76,51 @@ const posts = (await getCollection('blogFa'))
 
 	a {
 		display: grid;
-		gap: 0.4rem;
+		gap: 0.45rem;
 		height: 100%;
 		width: 100%;
-		padding: 1.1rem 1.15rem;
+		padding: 1.2rem 1.15rem;
 		text-decoration: none;
 		color: inherit;
-		background: rgba(255,255,255,0.66);
-		border: 1px solid rgba(15, 33, 56, 0.08);
-		border-radius: 1.1rem;
-		box-shadow: 0 18px 28px rgba(10, 25, 43, 0.05);
+		border: 1px solid rgba(138, 155, 179, 0.1);
+		border-radius: 1.2rem;
+		box-shadow: var(--shadow-card);
 		transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 	}
 
-	a:hover {
+	.post-item {
+		--card-bg: linear-gradient(180deg, rgba(37, 46, 63, 0.96), rgba(45, 56, 74, 0.96));
+		--card-accent: var(--teal);
+		--card-accent-soft: rgba(74, 155, 149, 0.16);
+	}
+
+	.post-item.tone-1 {
+		--card-bg: linear-gradient(180deg, rgba(45, 56, 74, 0.96), rgba(37, 46, 63, 0.96));
+		--card-accent: var(--primary);
+		--card-accent-soft: rgba(184, 134, 11, 0.15);
+	}
+
+	.post-item.tone-2 {
+		--card-bg: linear-gradient(180deg, rgba(37, 46, 63, 0.96), rgba(45, 56, 74, 0.96));
+		--card-accent: var(--teal);
+		--card-accent-soft: rgba(74, 155, 149, 0.18);
+	}
+
+	.post-item.tone-3 {
+		--card-bg: linear-gradient(180deg, rgba(45, 56, 74, 0.96), rgba(37, 46, 63, 0.96));
+		--card-accent: var(--accent-strong);
+		--card-accent-soft: rgba(184, 134, 11, 0.15);
+	}
+
+	.post-item a {
+		background: var(--card-bg);
+		border-inline-start: 4px solid var(--card-accent);
+	}
+
+	.post-item a:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 20px 32px rgba(10, 25, 43, 0.08);
-		border-color: rgba(27, 142, 134, 0.24);
+		box-shadow: 0 22px 36px rgba(26, 32, 44, 0.15);
+		border-color: rgba(138, 155, 179, 0.15);
 	}
 
 	.meta {
@@ -100,37 +128,40 @@ const posts = (await getCollection('blogFa'))
 		justify-content: space-between;
 		align-items: center;
 		gap: 0.5rem;
-		color: #1b8e86;
 		font-size: 0.72rem;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
 	}
 
 	time {
-		color: #586d83;
+		color: var(--muted);
 	}
 
 	em {
 		font-style: normal;
-		color: #b08223;
+		color: var(--card-accent);
+		background: var(--card-accent-soft);
+		padding: 0.28rem 0.5rem;
+		border-radius: 999px;
 	}
 
 	strong {
-		font-size: 1.18rem;
-		color: #0d2138;
+		font-size: 1.16rem;
+		color: var(--primary-strong);
 		line-height: 1.4;
 	}
 
 	.excerpt {
-		color: #53657b;
+		color: var(--ink-soft);
 		font-size: 0.95rem;
 		line-height: 1.7;
+		margin-top: 0.15rem;
 	}
 
 	.empty {
 		margin: 0;
 		padding: 1.1rem 0;
-		color: #51657b;
+		color: var(--muted);
 	}
 
 	@media (max-width: 840px) {
