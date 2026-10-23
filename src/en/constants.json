@@ -52,27 +52,33 @@
 	"about": {
 		"title": "About us",
 		"intro": "SUT MLC is the Machine Learning Community at Sharif University of Technology. We run reading groups, workshops, and a small weblog so students can share what they learn.",
-		"peopleTitle": "People",
-		"founder": {
-			"name": "Ermia Moghadamy",
-			"role": "Founder",
-			"email": "ermia@amurit.ir",
-			"bio": "Started SUT MLC to give Sharif students a clear place for machine learning: sessions, writing, and a small core team that keeps the community moving."
-		},
-		"assistantsTitle": "Assistants",
-		"assistants": [
+		"status": "Student community",
+		"summaryTitle": "What we are building",
+		"summaryItems": [
+			{ "label": "Study", "value": "Reading groups" },
+			{ "label": "Build", "value": "Workshops" },
+			{ "label": "Share", "value": "Public notes" }
+		],
+		"mission": [
+			{ "label": "Mission", "text": "We create a thoughtful place to learn, discuss, and publish ideas in machine learning with curiosity and care." },
+			{ "label": "How we work", "text": "Through reading groups, workshops, and public notes that make technical learning feel open, clear, and human." },
+			{ "label": "What we value", "text": "We prioritize calm teaching, good questions, and respectful collaboration across disciplines and experience levels." }
+		],
+		"peopleTitle": "Leadership",
+		"leaders": [
 			{
-				"name": "TBA",
-				"role": "Assistant",
-				"bio": "Helps run weekly sessions and keeps members involved."
+				"name": "ErmiaM",
+				"role": "Founding Lead",
+				"email": "ermia@amurit.ir",
+				"bio": "Founded SUT MLC to create a clear, welcoming home for machine learning learning in public: thoughtful sessions, good writing, and a community that keeps growing with its members."
 			},
 			{
-				"name": "TBA",
-				"role": "Assistant",
-				"bio": "Supports workshops, notes, and day-to-day community work."
+				"name": "Erfan J.",
+				"role": "Co-Lead",
+				"bio": "Helps guide the community’s direction, shape programs, and make sure the learning culture stays open, collaborative, and intellectually serious."
 			}
 		],
-		"coreTitle": "Core team",
+		"coreTitle": "Core people",
 		"core": [
 			{ "name": "TBA", "role": "Core · Events" },
 			{ "name": "TBA", "role": "Core · Content" },

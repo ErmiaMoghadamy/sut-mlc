@@ -7,7 +7,6 @@ import constants from '../constants.json';
 		<div class="hero-copy">
 			<p class="kicker">{constants.hero.kicker}</p>
 			<h1>{constants.hero.title}</h1>
-			<span class="ornament" aria-hidden="true"></span>
 			<p class="lead">{constants.hero.subtitle}</p>
 			<p class="summary">{constants.hero.summary}</p>
 			<div class="actions">
@@ -32,53 +31,48 @@ import constants from '../constants.json';
 
 <style>
 	.hero {
-		padding: 3.25rem 0 2.25rem;
+		padding: 2.2rem 0 2rem;
 	}
 
 	.hero-inner {
 		display: grid;
-		grid-template-columns: minmax(0, 1.6fr) minmax(230px, 0.75fr);
-		gap: 1.5rem;
+		grid-template-columns: minmax(0, 1.6fr) minmax(230px, 0.82fr);
+		gap: 1.4rem;
 		align-items: stretch;
+		padding: clamp(1.25rem, 2vw, 2rem);
+		border: 1px solid rgba(15, 33, 56, 0.08);
+		border-radius: 1.6rem;
+		background: linear-gradient(135deg, rgba(255,255,255,0.68), rgba(233, 242, 244, 0.86));
+		box-shadow: var(--shadow-soft);
 	}
 
 	.hero-copy {
 		max-width: 42rem;
-		padding: 1.1rem 0;
+		padding: 0.5rem 0.2rem;
 	}
 
 	.kicker {
-		margin: 0 0 0.8rem;
-		color: var(--teal-600);
+		margin: 0 0 0.75rem;
+		color: var(--teal-700);
 		font-size: 0.72rem;
 		letter-spacing: 0.18em;
 		text-transform: uppercase;
-		font-weight: 700;
+		font-weight: 800;
 	}
 
 	h1 {
 		margin: 0;
-		font-family: "Cormorant Garamond", Georgia, serif;
-		font-size: clamp(3rem, 7vw, 5rem);
+		font-size: clamp(3.3rem, 6vw, 5.2rem);
 		font-weight: 700;
-		line-height: 0.95;
+		line-height: 0.9;
 		letter-spacing: -0.04em;
-		color: #081b2f;
-	}
-
-	.ornament {
-		display: block;
-		width: 5rem;
-		height: 0.72rem;
-		margin: 1rem 0 1.15rem;
-		background: linear-gradient(90deg, transparent, #1c8d87 18%, #d0a74a 50%, #1c8d87 82%, transparent);
-		clip-path: polygon(0 50%, 18% 0, 50% 50%, 82% 0, 100% 50%, 82% 100%, 50% 50%, 18% 100%);
+		color: #081d2f;
 	}
 
 	.lead {
-		margin: 0;
-		max-width: 34rem;
-		font-size: 1.18rem;
+		margin: 1rem 0 0;
+		max-width: 35rem;
+		font-size: clamp(1.04rem, 1.5vw, 1.24rem);
 		line-height: 1.7;
 		color: #112a45;
 	}
@@ -87,14 +81,14 @@ import constants from '../constants.json';
 		margin: 1rem 0 0;
 		max-width: 35rem;
 		font-size: 1.02rem;
-		line-height: 1.8;
+		line-height: 1.82;
 		color: var(--stone-700);
 	}
 
 	.actions {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.7rem;
+		gap: 0.75rem;
 		margin-top: 1.7rem;
 	}
 
@@ -103,7 +97,7 @@ import constants from '../constants.json';
 		align-items: center;
 		justify-content: center;
 		min-height: 2.9rem;
-		padding: 0.75rem 1.2rem;
+		padding: 0.75rem 1.25rem;
 		border-radius: 999px;
 		font-weight: 700;
 		text-decoration: none;
@@ -115,30 +109,29 @@ import constants from '../constants.json';
 	}
 
 	.primary {
-		background: linear-gradient(135deg, #071428 0%, #133253 100%);
-		color: #f7e2a0;
+		background: linear-gradient(135deg, #091d2e 0%, #163457 100%);
+		color: #f8e6b7;
 		box-shadow: 0 14px 22px rgba(8, 27, 47, 0.15);
 	}
 
 	.secondary {
-		background: rgba(255, 255, 255, 0.4);
+		background: rgba(255, 255, 255, 0.5);
 		color: #0b2748;
 		border: 1px solid rgba(11, 39, 72, 0.13);
 	}
 
 	.info-panel {
-		padding: 1.2rem 1.15rem 1rem;
-		border: 1px solid rgba(28, 141, 135, 0.28);
-		border-radius: 1.35rem;
-		background: linear-gradient(180deg, rgba(255,255,255,0.72), rgba(244, 228, 166, 0.16));
-		box-shadow: 0 24px 42px rgba(15, 30, 48, 0.08);
-		backdrop-filter: blur(2px);
+		padding: 1.15rem 1rem 0.95rem;
+		border: 1px solid rgba(28, 141, 135, 0.2);
+		border-radius: 1.2rem;
+		background: linear-gradient(180deg, rgba(255,255,255,0.82), rgba(223, 234, 234, 0.9));
+		box-shadow: 0 18px 34px rgba(15, 30, 48, 0.06);
 	}
 
 	.panel-label {
-		margin: 0 0 1rem;
-		font-size: 0.72rem;
-		font-weight: 700;
+		margin: 0 0 0.9rem;
+		font-size: 0.7rem;
+		font-weight: 800;
 		letter-spacing: 0.18em;
 		text-transform: uppercase;
 		color: #1c8d87;
@@ -153,20 +146,20 @@ import constants from '../constants.json';
 		display: flex;
 		flex-direction: column;
 		gap: 0.12rem;
-		padding: 0.9rem 0.95rem;
+		padding: 0.95rem 1rem;
 		border-radius: 1rem;
-		background: rgba(255,255,255,0.52);
+		background: rgba(255,255,255,0.64);
 		border: 1px solid rgba(11, 39, 72, 0.08);
 	}
 
 	.panel-value {
-		font-size: 1.3rem;
+		font-size: 1.2rem;
 		font-weight: 700;
 		color: #0d2138;
 	}
 
 	.panel-meta {
-		font-size: 0.9rem;
+		font-size: 0.88rem;
 		color: var(--stone-700);
 	}
 
@@ -176,7 +169,7 @@ import constants from '../constants.json';
 		}
 
 		.hero {
-			padding-top: 2.4rem;
+			padding-top: 1.5rem;
 		}
 	}
 </style>

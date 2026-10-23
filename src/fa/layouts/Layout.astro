@@ -1,6 +1,5 @@
 ---
 import constants from "../constants.json";
-import AmuritBar from "../components/AmuritBar.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 
@@ -28,7 +27,6 @@ const pageTitle = title
         <title>{pageTitle}</title>
     </head>
     <body>
-        <!-- <AmuritBar /> -->
         <Header />
         <main>
             <slot />
@@ -49,17 +47,23 @@ const pageTitle = title
         --page-pad: 1.5rem;
         --navy-950: #071428;
         --navy-900: #0d2138;
+        --navy-800: #122b45;
         --navy-700: #163457;
+        --teal-700: #0f6d68;
         --teal-600: #1c8d87;
         --teal-500: #2ea59b;
+        --gold-600: #9a7422;
         --gold-500: #d0a74a;
         --gold-400: #e6ca7a;
-        --paper-100: #f8f4ed;
-        --paper-200: #f3ebdf;
-        --stone-900: #1a1f2c;
+        --paper-100: #f5f1ea;
+        --paper-200: #ece6dc;
+        --paper-300: #e3ddd2;
+        --stone-900: #162330;
         --stone-700: #44536d;
         --stone-500: #6b7a8d;
-        --line: rgba(11, 39, 72, 0.09);
+        --line: rgba(15, 33, 56, 0.1);
+        --card: rgba(255, 255, 255, 0.7);
+        --shadow-soft: 0 20px 45px rgba(11, 25, 40, 0.08);
     }
 
     html {
@@ -76,9 +80,9 @@ const pageTitle = title
         display: flex;
         flex-direction: column;
         background:
-            radial-gradient(circle at top, rgba(44, 148, 138, 0.18), transparent 26%),
-            radial-gradient(circle at bottom left, rgba(208, 167, 74, 0.12), transparent 28%),
-            linear-gradient(180deg, #faf6ef 0%, #f3ebdf 100%);
+            radial-gradient(circle at 12% 0%, rgba(28, 141, 135, 0.14), transparent 20%),
+            radial-gradient(circle at 90% 10%, rgba(208, 167, 74, 0.14), transparent 22%),
+            linear-gradient(180deg, #f8f4ee 0%, #f0efe9 100%);
         color: var(--stone-900);
     }
 
@@ -88,18 +92,17 @@ const pageTitle = title
         inset: 0;
         pointer-events: none;
         background-image: url('/patterns/girih.svg');
-        background-size: 170px 170px;
-        opacity: 0.06;
+        background-size: 150px 150px;
+        opacity: 0.05;
         mix-blend-mode: multiply;
     }
 
     main {
         position: relative;
         flex: 1;
-        width: 100%;
-        max-width: var(--page-max);
+        width: min(100%, calc(var(--page-max) + 2rem));
         margin: 0 auto;
-        padding: 1.25rem var(--page-pad) 4rem;
+        padding: 1.5rem var(--page-pad) 4rem;
     }
 
     article {
@@ -127,7 +130,11 @@ const pageTitle = title
         font-weight: 700;
     }
 
+    a {
+        transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+    }
+
     ::selection {
-        background: rgba(28, 141, 135, 0.18);
+        background: rgba(28, 141, 135, 0.16);
     }
 </style>
