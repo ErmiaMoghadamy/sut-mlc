@@ -11,13 +11,19 @@ const shorts = posts.filter((post) => post.data.kind === 'short');
 
 <section class="page">
 	<div class="page-header">
-		<div>
+		<div class="header-content">
 			<h1>{constants.postsPage.title}</h1>
 			<p class="intro">{constants.postsPage.intro}</p>
 		</div>
-		<div class="summary-badges" aria-label="Content summary">
-			<span>{articles.length} articles</span>
-			<span>{shorts.length} short notes</span>
+		<div class="stats-badge">
+			<div class="stat-item">
+				<span class="stat-number">{articles.length}</span>
+				<span class="stat-label">Articles</span>
+			</div>
+			<div class="stat-item">
+				<span class="stat-number">{shorts.length}</span>
+				<span class="stat-label">Notes</span>
+			</div>
 		</div>
 	</div>
 
@@ -32,18 +38,21 @@ const shorts = posts.filter((post) => post.data.kind === 'short');
 				{articles.map((post, index) => (
 					<li class:list={['article-item', `article-tone-${(index % 3) + 1}`]}>
 						<a href={`/posts/${post.id}`}>
-							<div class="meta-row">
-								<em>{constants.kinds.article}</em>
-								<time datetime={post.data.pubDate.toISOString()}>
-									{post.data.pubDate.toLocaleDateString('en-US', {
-										year: 'numeric',
-										month: 'long',
-										day: 'numeric',
-									})}
-								</time>
+							<div class="article-number">{String(index + 1).padStart(2, '0')}</div>
+							<div class="article-content">
+								<div class="meta-row">
+									<em>{constants.kinds.article}</em>
+									<time datetime={post.data.pubDate.toISOString()}>
+										{post.data.pubDate.toLocaleDateString('en-US', {
+											year: 'numeric',
+											month: 'long',
+											day: 'numeric',
+										})}
+									</time>
+								</div>
+								<strong>{post.data.title}</strong>
+								<span>{post.data.description}</span>
 							</div>
-							<strong>{post.data.title}</strong>
-							<span>{post.data.description}</span>
 						</a>
 					</li>
 				))}
@@ -62,15 +71,18 @@ const shorts = posts.filter((post) => post.data.kind === 'short');
 				{shorts.map((post, index) => (
 					<li class:list={['short-item', `short-tone-${(index % 2) + 1}`]}>
 						<a href={`/posts/${post.id}`}>
-							<em>{constants.kinds.short}</em>
-							<time datetime={post.data.pubDate.toISOString()}>
-								{post.data.pubDate.toLocaleDateString('en-US', {
-									year: 'numeric',
-									month: 'short',
-									day: 'numeric',
-								})}
-							</time>
-							<strong>{post.data.title}</strong>
+							<span class="short-index">{index + 1}</span>
+							<div class="short-content">
+								<em>{constants.kinds.short}</em>
+								<time datetime={post.data.pubDate.toISOString()}>
+									{post.data.pubDate.toLocaleDateString('en-US', {
+										year: 'numeric',
+										month: 'short',
+										day: 'numeric',
+									})}
+								</time>
+								<strong>{post.data.title}</strong>
+							</div>
 						</a>
 					</li>
 				))}
@@ -87,20 +99,37 @@ const shorts = posts.filter((post) => post.data.kind === 'short');
 	.page-header {
 		display: flex;
 		justify-content: space-between;
-		align-items: end;
-		gap: 1rem;
-		margin-bottom: 1.8rem;
-		padding: 1.4rem 1.5rem;
+		align-items: center;
+		gap: 2rem;
+		margin-bottom: 2.5rem;
+		padding: 2rem 2.5rem;
 		border: 1px solid rgba(138, 155, 179, 0.1);
 		border-radius: 1.5rem;
 		background: linear-gradient(135deg, rgba(50, 62, 82, 0.98), rgba(61, 74, 94, 0.96));
 		box-shadow: var(--shadow-card);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.page-header::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 200px;
+		height: 200px;
+		background: radial-gradient(circle, rgba(74, 155, 149, 0.08) 0%, transparent 70%);
+		pointer-events: none;
+	}
+
+	.header-content {
+		flex: 1;
 	}
 
 	h1 {
-		margin: 0 0 0.7rem;
+		margin: 0 0 0.8rem;
 		font-family: "Cormorant Garamond", Georgia, serif;
-		font-size: clamp(2.6rem, 4vw, 4rem);
+		font-size: clamp(2.8rem, 4vw, 4.2rem);
 		line-height: 1.02;
 		color: var(--primary-strong);
 	}
@@ -113,37 +142,65 @@ const shorts = posts.filter((post) => post.data.kind === 'short');
 		line-height: 1.7;
 	}
 
-	.summary-badges {
+	.stats-badge {
 		display: flex;
-		flex-wrap: wrap;
-		justify-content: flex-end;
-		gap: 0.55rem;
+		gap: 1.5rem;
+		position: relative;
+		z-index: 1;
 	}
 
-	.summary-badges span {
-		display: inline-flex;
+	.stat-item {
+		display: flex;
+		flex-direction: column;
 		align-items: center;
-		padding: 0.5rem 0.8rem;
-		border-radius: 999px;
-		background: var(--teal-soft);
-		border: 1px solid rgba(74, 155, 149, 0.18);
-		color: var(--primary);
-		font-size: 0.8rem;
+		gap: 0.3rem;
+		padding: 1rem 1.5rem;
+		background: rgba(40, 52, 70, 0.6);
+		border-radius: 1rem;
+		border: 1px solid rgba(138, 155, 179, 0.15);
+		min-width: 100px;
+	}
+
+	.stat-number {
+		font-size: 2rem;
 		font-weight: 700;
+		color: var(--teal);
+		line-height: 1;
+		font-family: "Cormorant Garamond", Georgia, serif;
+	}
+
+	.stat-label {
+		font-size: 0.75rem;
+		color: var(--muted);
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		font-weight: 600;
 	}
 
 	.section-block {
-		margin-bottom: 2.2rem;
+		margin-bottom: 3rem;
 	}
 
 	.section-header {
-		margin-bottom: 0.8rem;
+		margin-bottom: 1.5rem;
+		position: relative;
+	}
+
+	.section-header::after {
+		content: "";
+		position: absolute;
+		bottom: -0.5rem;
+		left: 0;
+		width: 60px;
+		height: 3px;
+		background: linear-gradient(90deg, var(--teal), transparent);
+		border-radius: 2px;
 	}
 
 	h2 {
 		margin: 0;
 		font-family: "Cormorant Garamond", Georgia, serif;
-		font-size: clamp(1.8rem, 2vw, 2.4rem);
+		font-size: clamp(2rem, 2.5vw, 2.6rem);
 		color: var(--primary-strong);
 	}
 
@@ -154,50 +211,128 @@ const shorts = posts.filter((post) => post.data.kind === 'short');
 	}
 
 	a {
-		display: grid;
-		gap: 0.34rem;
+		display: flex;
+		gap: 1.2rem;
 		text-decoration: none;
 		color: inherit;
 		border: 1px solid rgba(138, 155, 179, 0.1);
-		border-radius: 1.15rem;
-		transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+		border-radius: 1.2rem;
+		transition: all 0.25s ease;
+		position: relative;
+		overflow: hidden;
+	}
+
+	a::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 4px;
+		height: 100%;
+		background: var(--article-accent, var(--short-accent));
+		transition: width 0.25s ease;
 	}
 
 	a:hover {
-		transform: translateY(-1px);
-		box-shadow: 0 14px 24px rgba(26, 32, 44, 0.12);
-		border-color: rgba(74, 155, 149, 0.2);
+		transform: translateY(-3px);
+		box-shadow: 0 20px 40px rgba(30, 36, 48, 0.2);
+		border-color: rgba(74, 155, 149, 0.25);
+	}
+
+	a:hover::before {
+		width: 6px;
 	}
 
 	.articles {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 1rem;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: 1.2rem;
 	}
 
 	.article-item {
-		--article-bg: linear-gradient(180deg, rgba(50, 62, 82, 0.98), rgba(61, 74, 94, 0.98));
-		--article-accent: var(--primary);
-		--article-accent-soft: rgba(184, 134, 11, 0.15);
+		--article-bg: linear-gradient(135deg, rgba(50, 62, 82, 0.98), rgba(61, 74, 94, 0.96));
+		--article-accent: var(--teal);
+		--article-accent-soft: rgba(74, 155, 149, 0.15);
 	}
 
 	.article-tone-2 {
-		--article-bg: linear-gradient(180deg, rgba(61, 74, 94, 0.98), rgba(50, 62, 82, 0.98));
-		--article-accent: var(--teal);
-		--article-accent-soft: rgba(74, 155, 149, 0.16);
+		--article-bg: linear-gradient(135deg, rgba(61, 74, 94, 0.98), rgba(50, 62, 82, 0.96));
+		--article-accent: var(--accent-strong);
+		--article-accent-soft: rgba(184, 134, 11, 0.15);
 	}
 
 	.article-tone-3 {
-		--article-bg: linear-gradient(180deg, rgba(61, 74, 94, 0.98), rgba(50, 62, 82, 0.98));
-		--article-accent: var(--accent-strong);
-		--article-accent-soft: rgba(184, 134, 11, 0.16);
+		--article-bg: linear-gradient(135deg, rgba(50, 62, 82, 0.98), rgba(61, 74, 94, 0.96));
+		--article-accent: var(--primary);
+		--article-accent-soft: rgba(184, 134, 11, 0.12);
 	}
 
 	.articles a {
-		padding: 1.2rem 1.25rem;
-		min-height: 10rem;
+		padding: 1.5rem 1.5rem 1.5rem 2.7rem;
 		background: var(--article-bg);
-		border-inline-start: 4px solid var(--article-accent);
+		min-height: 180px;
+		align-items: flex-start;
+	}
+
+	.article-number {
+		font-size: 3rem;
+		font-weight: 700;
+		color: var(--article-accent);
+		line-height: 1;
+		font-family: "Cormorant Garamond", Georgia, serif;
+		opacity: 0.15;
+		position: absolute;
+		top: 0.5rem;
+		right: 1rem;
+		transition: opacity 0.25s ease;
+	}
+
+	a:hover .article-number {
+		opacity: 0.25;
+	}
+
+	.article-content {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.meta-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 0.8rem;
+	}
+
+	em {
+		font-style: normal;
+		color: var(--article-accent);
+		background: var(--article-accent-soft);
+		padding: 0.3rem 0.6rem;
+		border-radius: 999px;
+		font-size: 0.7rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		font-weight: 700;
+	}
+
+	time {
+		color: var(--muted);
+		font-size: 0.8rem;
+	}
+
+	strong {
+		color: var(--primary-strong);
+		font-size: 1.15rem;
+		line-height: 1.4;
+		font-weight: 600;
+	}
+
+	span {
+		color: var(--ink-soft);
+		line-height: 1.6;
+		font-size: 0.95rem;
 	}
 
 	.shorts {
@@ -216,62 +351,45 @@ const shorts = posts.filter((post) => post.data.kind === 'short');
 	}
 
 	.shorts a {
-		grid-template-columns: auto auto 1fr;
+		grid-template-columns: auto 1fr;
 		align-items: center;
-		gap: 0.8rem;
-		padding: 0.9rem 1rem;
+		gap: 1rem;
+		padding: 1rem 1.2rem 1rem 2.2rem;
 		background: var(--short-bg);
-		border-inline-start: 3px solid var(--short-accent);
 	}
 
-	.meta-row {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		gap: 0.8rem;
-	}
-
-	em {
-		font-style: normal;
-		color: var(--article-accent, var(--short-accent));
-		background: var(--article-accent-soft, rgba(74, 155, 149, 0.12));
-		padding: 0.25rem 0.5rem;
-		border-radius: 999px;
-		font-size: 0.7rem;
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
+	.short-index {
+		font-size: 1.5rem;
 		font-weight: 700;
+		color: var(--short-accent);
+		line-height: 1;
+		font-family: "Cormorant Garamond", Georgia, serif;
+		opacity: 0.3;
 	}
 
-	time {
-		color: var(--muted);
-		font-size: 0.8rem;
-	}
-
-	strong {
-		color: var(--primary-strong);
-		font-size: 1.08rem;
-		line-height: 1.45;
-	}
-
-	span {
-		color: var(--ink-soft);
-		line-height: 1.6;
+	.short-content {
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
 	}
 
 	.empty {
 		margin: 0;
-		padding: 1rem 0;
+		padding: 2rem 0;
 		color: var(--muted);
+		text-align: center;
+		font-style: italic;
 	}
 
 	@media (max-width: 840px) {
 		.page-header {
 			flex-direction: column;
 			align-items: flex-start;
+			gap: 1.5rem;
 		}
 
-		.summary-badges {
+		.stats-badge {
+			width: 100%;
 			justify-content: flex-start;
 		}
 
@@ -280,8 +398,8 @@ const shorts = posts.filter((post) => post.data.kind === 'short');
 		}
 
 		.shorts a {
-			grid-template-columns: 1fr;
-			gap: 0.3rem;
+			grid-template-columns: auto 1fr;
+			gap: 0.8rem;
 		}
 	}
 </style>
