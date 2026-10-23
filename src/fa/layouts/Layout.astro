@@ -54,14 +54,14 @@ const pageTitle = title
         --space-8: 2rem;
         --space-10: 2.5rem;
         --space-12: 3rem;
-        --bg: #1a202c;
-        --bg-strong: #252e3f;
-        --surface: rgba(37, 46, 63, 0.94);
-        --surface-strong: #2d384a;
+        --bg: #1e2430;
+        --bg-strong: #283446;
+        --surface: rgba(50, 62, 82, 0.96);
+        --surface-strong: #3d4a5e;
         --ink: #e8eef5;
         --ink-soft: #b8c5d6;
         --muted: #8a9bb3;
-        --line: rgba(138, 155, 179, 0.2);
+        --line: rgba(138, 155, 179, 0.25);
         --primary: #e8eef5;
         --primary-strong: #f5f7fa;
         --accent: #b8860b;
@@ -69,9 +69,9 @@ const pageTitle = title
         --accent-soft: rgba(184, 134, 11, 0.1);
         --teal: #4a9b95;
         --teal-soft: rgba(74, 155, 149, 0.12);
-        --slate: #2d384a;
-        --shadow-soft: 0 26px 58px rgba(26, 32, 44, 0.3);
-        --shadow-card: 0 18px 34px rgba(26, 32, 44, 0.25);
+        --slate: #3d4a5e;
+        --shadow-soft: 0 26px 58px rgba(30, 36, 48, 0.3);
+        --shadow-card: 0 18px 34px rgba(30, 36, 48, 0.25);
     }
 
     html {
@@ -88,9 +88,10 @@ const pageTitle = title
         display: flex;
         flex-direction: column;
         background:
-            radial-gradient(circle at top left, rgba(74, 155, 149, 0.08), transparent 20%),
-            radial-gradient(circle at top right, rgba(184, 134, 11, 0.08), transparent 18%),
-            linear-gradient(180deg, #1a202c 0%, #252e3f 100%);
+            radial-gradient(circle at top left, rgba(74, 155, 149, 0.1), transparent 25%),
+            radial-gradient(circle at top right, rgba(184, 134, 11, 0.1), transparent 22%),
+            radial-gradient(circle at bottom left, rgba(74, 155, 149, 0.05), transparent 30%),
+            linear-gradient(180deg, #1e2430 0%, #283446 100%);
         color: var(--ink);
     }
 
@@ -99,7 +100,9 @@ const pageTitle = title
         position: fixed;
         inset: 0;
         pointer-events: none;
-        background: linear-gradient(180deg, rgba(26, 32, 44, 0.15), rgba(26, 32, 44, 0));
+        background: 
+            linear-gradient(180deg, rgba(30, 36, 48, 0.12), rgba(30, 36, 48, 0)),
+            radial-gradient(circle at 50% 50%, rgba(74, 155, 149, 0.03), transparent 50%);
         opacity: 1;
     }
 
