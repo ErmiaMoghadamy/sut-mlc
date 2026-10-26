@@ -293,7 +293,7 @@ const { leaders, core, mission, summaryItems } = constants.about;
 
 	.leader-card h3 {
 		margin: 0;
-		font-size: clamp(2rem, 3vw, 2.9rem);
+		font-size: clamp(1.8rem, 2.6vw, 2.5rem);
 		line-height: 1.03;
 		color: var(--primary-strong);
 	}
@@ -322,10 +322,6 @@ const { leaders, core, mission, summaryItems } = constants.about;
 		margin-top: 1rem;
 	}
 
-	.core-card-title  {
-		font-size: 3.3rem;
-	}
-
 	.core-card {
 		padding: 0.9rem 1rem;
 		border: 1px solid rgba(138, 155, 179, 0.1);
@@ -334,9 +330,15 @@ const { leaders, core, mission, summaryItems } = constants.about;
 		box-shadow: var(--shadow-card);
 	}
 
+	.core-card .badge {
+		font-size: 0.76rem;
+		padding: 0.42rem 0.8rem;
+	}
+
+	.core-card-title,
 	.core-card h3 {
 		margin: 0.7rem 0 0;
-		font-size: 1rem;
+		font-size: 1.35rem;
 		color: var(--primary-strong);
 	}
 
