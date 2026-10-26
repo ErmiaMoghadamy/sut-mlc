@@ -28,7 +28,7 @@
 		"panelItems": [
 			{ "value": "Study", "meta": "Reading groups" },
 			{ "value": "Build", "meta": "Workshops" },
-			{ "value": "Share", "meta": "Public notes" }
+			{ "value": "Share", "meta": "Networking space" }
 		],
 		"primaryCta": { "label": "Read the posts", "href": "/posts" },
 		"secondaryCta": { "label": "Meet the team", "href": "/about" }
@@ -44,25 +44,25 @@
 	},
 	"postsPage": {
 		"title": "Posts",
-		"intro": "Short notes for quick updates, and longer articles when a topic needs more room.",
+		"intro": "Updates are shared through short posts.",
 		"shorts": "Short posts",
 		"articles": "Articles",
 		"empty": "Nothing in this section yet."
 	},
 	"about": {
 		"title": "About us",
-		"intro": "SUT MLC is the Machine Learning Community at Sharif University of Technology. We run reading groups, workshops, and a small weblog so students can share what they learn.",
+		"intro": "The Sharif University of Technology Machine Learning Community is a student-led group created by students from Sharif’s mathematics community to support mutual learning and collaboration around ML and the intersection of mathematics and computer science.",
 		"status": "Student community",
 		"summaryTitle": "What we are building",
 		"summaryItems": [
 			{ "label": "Study", "value": "Reading groups" },
 			{ "label": "Build", "value": "Workshops" },
-			{ "label": "Share", "value": "Public notes" }
+			{ "label": "Share", "value": "Public projects" }
 		],
 		"mission": [
-			{ "label": "Mission", "text": "We create a thoughtful place to learn, discuss, and publish ideas in machine learning with curiosity and care." },
-			{ "label": "How we work", "text": "Through reading groups, workshops, and public notes that make technical learning feel open, clear, and human." },
-			{ "label": "What we value", "text": "We prioritize calm teaching, good questions, and respectful collaboration across disciplines and experience levels." }
+			{ "label": "Mission", "text": "We create a thoughtful space for learning, discussion, and sharing ideas in machine learning, with the goal of learning together." },
+			{ "label": "How we work", "text": "Beyond regular workshops and sessions, our community works to create a space for connection, growth, and collaboration." },
+			{ "label": "What we value", "text": "We aim to bridge the gap between academia and practice by making the boundary between theory and application less rigid in university life." }
 		],
 		"peopleTitle": "Leadership",
 		"leaders": [
@@ -70,22 +70,18 @@
 				"name": "ErmiaM",
 				"role": "Founding Lead",
 				"email": "ermia@amurit.ir",
-				"bio": "Founded SUT MLC to create a clear, welcoming home for machine learning learning in public: thoughtful sessions, good writing, and a community that keeps growing with its members."
+				"bio": "Systems/graphics engineer, Sharif mathematics student, and official instructor at the Iranian Technical and Vocational Organization."
 			},
 			{
 				"name": "Erfan J.",
 				"role": "Co-Lead",
-				"bio": "Helps guide the community’s direction, shape programs, and make sure the learning culture stays open, collaborative, and intellectually serious."
+				"bio": "A machine learning engineer and developer, and a computer engineering student at Sharif University of Technology."
 			}
 		],
 		"coreTitle": "Core people",
 		"core": [
-			{ "name": "TBA", "role": "Core · Events" },
-			{ "name": "TBA", "role": "Core · Content" },
-			{ "name": "TBA", "role": "Core · Workshops" },
-			{ "name": "TBA", "role": "Core · Outreach" },
-			{ "name": "TBA", "role": "Core · Reading group" },
-			{ "name": "TBA", "role": "Core · Operations" }
+			{ "name": "Reza Sajjadian", "role": "Core . Math", "bio": "Sharif mathematics student | Math Olympiad | Modern Mathematics." },
+			{ "name": "Maryam Pakdel", "role": "Core · Content", "bio": "Telecommunications BSc | data science and signal processing." }
 		]
 	},
 	"footer": {

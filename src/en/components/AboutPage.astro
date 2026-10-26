@@ -70,7 +70,8 @@ const { leaders, core, mission, summaryItems } = constants.about;
 			{core.map((person) => (
 				<article class="core-card">
 					<span class="badge">{person.role}</span>
-					<h3>{person.name}</h3>
+					<h3 class="core-card-title">{person.name}</h3>
+					<p>{person.bio}</p>
 				</article>
 			))}
 		</div>
