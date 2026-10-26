@@ -54,8 +54,8 @@ const { leaders, core, mission, summaryItems } = constants.about;
 						<span class="badge">{person.role}</span>
 					</div>
 					<h3>{person.name}</h3>
-					<p>{person.bio}</p>
 					{person.email ? <a class="email" href={`mailto:${person.email}`}>{person.email}</a> : null}
+					<p>{person.bio}</p>
 				</article>
 			))}
 		</div>
@@ -70,7 +70,8 @@ const { leaders, core, mission, summaryItems } = constants.about;
 			{core.map((person) => (
 				<article class="core-card">
 					<span class="badge">{person.role}</span>
-					<h3>{person.name}</h3>
+					<h3 class="core-card-title">{person.name}</h3>
+					<p>{person.bio}</p>
 				</article>
 			))}
 		</div>
@@ -319,6 +320,10 @@ const { leaders, core, mission, summaryItems } = constants.about;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 		gap: 0.9rem;
 		margin-top: 1rem;
+	}
+
+	.core-card-title  {
+		font-size: 3.3rem;
 	}
 
 	.core-card {
